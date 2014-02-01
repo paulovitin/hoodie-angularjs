@@ -1,0 +1,85 @@
+//- INCLUDING MIXINS
+include views/mixins/all
+
+!!! 5
+| <!--[if lt IE 7]>      <html lang="pt-br" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+| <!--[if IE 7]>         <html lang="pt-br" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+| <!--[if IE 8]>         <html lang="pt-br" class="no-js lt-ie9"> <![endif]-->
+| <!--[if gt IE 8]><!--> <html lang="pt-br" class="no-js"> <!--<![endif]-->
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(name="description", content="")
+
+  title ProjectNamespace::ProjectName
+
+  link(rel="stylesheet", href="bower_components/urby-assets/dist/styles/urby-assets.css")
+  // build:css({.tmp,app}) styles/main.css
+  link(rel="stylesheet", href="styles/main.css")
+  // endbuild
+body(ng-app="projectnamespace.projectname")
+  //if lt IE 7
+    p.chromeframe
+      | You are using an outdated browser.
+      a(href="http://browsehappy.com/") Upgrade your browser today
+      | or
+      a(href="http://www.google.com/chromeframe/?redirect=true") install Google Chrome Frame
+      | to better experience this site.
+
+  // if lt IE 9]>
+    script(src="bower_components/es5-shim/es5-shim.js")
+    script(src="bower_components/json3/lib/json3.min.js")
+
+  urby-apps-navbar
+
+  header.navbar.navbar-static-top.navbar-inverse(role="navigation")
+    .container
+      .navbar-header
+        a.navbar-brand(href="./") urby
+          .divider
+          small Project Name
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li: a(href="", ng-href="") Example Link
+
+  div(ng-view="")
+
+  urby-about-footer
+
+  //-
+    script.
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-XXXXX-XX']);
+      _gaq.push(['_setDomainName', 'domain.name.hr']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+  // build:js scripts/libs.js
+  script(src="bower_components/jquery/jquery.js")
+  script(src="bower_components/bootstrap/dist/js/bootstrap.js")
+  script(src="bower_components/angular/angular.js")
+  // endbuild
+
+  // build:js scripts/modules.js
+  script(src="bower_components/angular-sanitize/angular-sanitize.js")
+  script(src="bower_components/angular-resource/angular-resource.js")
+  script(src="bower_components/angular-cookies/angular-cookies.js")
+  // endbuild
+
+  // build:js({.tmp,app}) scripts/scripts.js
+  script(src="scripts/app.js")
+  script(src="scripts/controllers/main.js")
+  script(src="scripts/services/example.js")
+  script(src="scripts/directives/example.js")
+  script(src="scripts/filters/urbify.js")
+  // endbuild
+
+  script(src="bower_components/urby-assets/dist/lib/urby-assets.js")
+

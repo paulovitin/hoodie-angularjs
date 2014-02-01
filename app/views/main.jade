@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-xs-12.col-sm-8.col-sm-offset-2
+      .row
+        .col-sm-12
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title
+                  i.glyphicon.glyphicon-star
+                  | &#32;
+                  //- directive example
+                  example(project-name="Example Project")
+              .panel-body
+                ul
+                  li(ng-repeat="service in services") {{ service }}
+                br
+                //- filter example
+                strong {{ 'text will be ' | urbify }}
+
